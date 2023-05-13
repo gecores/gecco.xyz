@@ -8,5 +8,5 @@ cardView : true
 ---
 
 {{< lead >}}
-If you'd like to have a t-shirt and know me personally, then contact me with the design and size you'd like to have.
+If you'd like to have a t-shirt and know me personally, then [contact me](mailto:contact@gecco.xyz) with the design and size you'd like to have.
 {{< /lead >}}
