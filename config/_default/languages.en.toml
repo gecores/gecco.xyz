@@ -15,8 +15,8 @@ dateFormat = "2006-01-02"
 [author]
   name = "Alexander Haas"
   image = "img/author.webp"
-  headline = "Data Engineer @ shopping24"
-  bio = "Data Engineer @ shopping24"
+  headline = "Data Engineer @ OTTO"
+  bio = "Data Engineer @ OTTO"
   links = [
     { github = "https://github.com/gecores" },
     { email = "mailto:contact@gecco.xyz" },

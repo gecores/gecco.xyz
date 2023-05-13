@@ -1,18 +1,20 @@
 #!/bin/bash
 
+.PHONY = help build dev deploy
+
 help:
-	@echo All available makefile commands:
-	@echo     build          Replace folder public with current state
-	@echo     run-local      Start Hugo Dev Server
+	@echo 'All available makefile commands:'
+	@echo '    build          Replace folder public with current state'
+	@echo '    dev            Start Hugo Dev Server'
+	@echo '    deploy         Build and then upload the website'
 
 build:
 	rm -r public
 	hugo
 
-run-local:
+dev:
 	hugo server
 
-deploy:
-	@echo 'deploy'
+deploy: build
 	ssh gecco.xyz@ssh.strato.de rm -r gecco.xyz/*
 	scp -r public/* gecco.xyz@ssh.strato.de:/gecco.xyz/
