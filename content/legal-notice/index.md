@@ -1,6 +1,5 @@
 ---
 title: "Legal Notice"
-date: 2023-02-19T20:55:37+01:00
 draft: false
 
 showDate : false
@@ -9,10 +8,11 @@ showPagination : false
 showReadingTime : false
 showTableOfContents : false
 showAuthor: false
+heroStyle: "background"
 
 ---
 
-## Information pursuant to Sect. 5 German Telemedia Act (TMG)
+## Information pursuant to "Medienstaatsvertrag §18"
 
 Alexander Haas<br>
 c/o Block Services<br>

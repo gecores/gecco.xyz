@@ -1,11 +1,14 @@
 ---
 title: "About"
-date: 2023-02-19
 draft: false
 
 showDate : false
-showReadingTime : false
+showHeadingAnchors : false
 showPagination : false
+showReadingTime : false
+showTableOfContents : false
+showAuthor: true
+heroStyle: "background"
 
 ---
 

@@ -1,3 +1,12 @@
+td {
+    vertical-align: middle !important;
+}
+
+.main-menu {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+}
+
 @media screen and (min-width: 0px) {
     /*     .customthumb {
         width: 100%;
@@ -88,8 +97,4 @@
         border-radius: 4%;
     } */
 
-}
-
-td {
-    vertical-align: middle !important;
 }
