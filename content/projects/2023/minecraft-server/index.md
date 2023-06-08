@@ -6,13 +6,23 @@ draft: true
 
 ---
 
-This is a guide for moderately tech savy, Linux-server interested Minecraft enthusiasts.
-At the end you will have a stable server you can throw bukkit plug-ins at, without having to worry if the server will crash.
+This is a guide for moderately tech savy, Linux-server interested Minecraft enthusiasts, which would like to host a server for 4 to 20 people and most importantly, learn about Linux, Java edge-cases and community management.
+At the end you will have a stable server you can throw bukkit plug-ins at, without having to worry that the server will crash.
 
-## Challenges:
+## Hosting
+TL;DR: You shouldn't choose the cheapest hoster as there can be significant differences. Try different options and fail-fast. (Hetzner worked out great for me)
+
+Picking a hoster is like choosing a matress. You can pay for the most expensive option and invest into "a third of your life", but in the end it's still just a mattress.
+You still have to make sure that the mattress fits your needs, especially if you have specific requirements.
+
+A gaming server on a VM is a very specific requirement. Minecraft servers even more so as they aren't very parallelizable and need a big chunk of RAM. Typical Server CPUs have a high count of cores, but a low frequency. Therefore the selection of the correct VM may be critical if you have a higher number of players.
+
+
+
+## Challenges I'd like to write about:
 - Hoster (Strato and issues with them -> solution Hetzner)
-- Automation & Backup (scp regularly from one server to another)
 - Minecraft Performance (Switch from normal minecraft -> spigot -> papermc)
+- Automation & Backup (scp regularly from one server to another)
 - Plug-In Memory Leak (Analyze Heap Dumps and find issue)
 
 - Minor Challenge: MapList Errors
