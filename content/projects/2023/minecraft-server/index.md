@@ -10,12 +10,36 @@ This is a guide for moderately tech savy, Linux-server interested Minecraft enth
 At the end you will have a stable server you can throw bukkit plug-ins at, without having to worry that the server will crash.
 
 ## Hosting
-TL;DR: You shouldn't choose the cheapest hoster as there can be significant differences. Try different options and fail-fast. (Hetzner worked out great for me)
+> TL;DR: You shouldn't choose the cheapest hoster as there can be significant differences. Try different options and fail-fast. (Hetzner worked out great for me)
 
-Picking a hoster is like choosing a matress. You can pay for the most expensive option and invest into "a third of your life", but in the end it's still just a mattress.
-You still have to make sure that the mattress fits your needs, especially if you have specific requirements.
+Picking a hoster is like choosing a matress. You can pay for the most expensive option and *"invest into a third of your life"* and
+you have to make sure that the mattress fits your needs, especially if you have specific requirements, but in the end it's still just a mattress.
 
-A gaming server on a VM is a very specific requirement. Minecraft servers even more so as they aren't very parallelizable and need a big chunk of RAM. Typical Server CPUs have a high count of cores, but a low frequency. Therefore the selection of the correct VM may be critical if you have a higher number of players.
+A gaming server is a very specific requirement. Minecraft servers even more so as they aren't very parallelizable and need a big chunk of RAM. Typical Server CPUs have a high count of cores, but a low single core performance. Therefore the selection of the correct Server may be critical if you have a higher number of players.
+Additionally multiplayer games are sensitive to lag, therefore storage and networking should be optimized as well.
+
+Keeping in mind all of the above, we can optimize for the following factors:
+
+- **Increase**
+  - Single core performance
+  - RAM
+  - IOPS for Storage (RAID 10 NVMe SSD Storage should definitely do it)
+- **Decrease**
+  - Network lag (e.g. decrease distance to Hoster)
+  - Cost
+
+At first I chose strato.de as they had one of the cheapest options for a VM. Hosted a server quickly, but I had issues with heavy lag spikes everytime a chunk got loaded. After further analysis I concluded that their storage wasn't fast enough to keep up with the demand. Pre-generating and loading chunks into RAM, could've been a solution, but I decided against that, as everytime a player would go out of the pre-loaded area, the server would freeze up for everybody.
+
+The [VMs at Hetzner{{<icon "link">}}](https://www.hetzner.com/de/cloud) were in a totally different league. I chose a server with the following specs:
+```
+vServer:        CX31
+CPU vCores:     2 (Intel Xeon Gold)
+RAM:            8 GB
+Storage:        80 GB (RAID 10 NVMe SSDs)
+OS:             <insert favorite linux distro>
+Location:       Germany
+Price:          ~11,50€
+```
 
 
 
@@ -29,16 +53,6 @@ A gaming server on a VM is a very specific requirement. Minecraft servers even m
 - Listen to your players: them having fun is your primary objective
 
 
-## Server
-```
-Host:           Hetzner
-vServer:        CX31
-CPU vCores:     2
-RAM:            8 GB
-Storage:        160 GB
-OS:             Ubuntu 20.04 LTS 64 bit
-IP-Adress:      78.47.115.237
-```
 ## Admin-Log
 
 ## How-To
