@@ -11,3 +11,9 @@ https://gohugo.io
 https://github.com/nunocoracao/blowfish
 Which itself is based on:
 https://github.com/jpanther/congo
+
+
+### Setup
+Install hugo-extended
+git submodule init
+git submodule update
