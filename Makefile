@@ -5,9 +5,10 @@
 help:
 	@echo 'All available makefile commands:'
 	@echo '    build          Replace folder public with current state'
-	@echo '    local          Start Hugo Dev Server'
-	@echo '    deploy-dev     Build and then upload the website to a test directory'
+	@echo '    local          Start Hugo Local Server'
+	@echo '    local-dev      Start Hugo Local Server in Dev mode'
 	@echo '    deploy         Build and then upload the website'
+	@echo '    deploy-dev     Build and then upload the website to a test directory'
 	@echo '    upgrade        Download newest hugo version and update theme'
 
 build:
