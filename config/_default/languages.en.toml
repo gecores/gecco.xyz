@@ -1,16 +1,16 @@
 languageCode = "en"
 languageName = "English"
-displayName = "🇬🇧"
-isoCode = "en"
 weight = 1
-rtl = false
-
 title = "gecco.xyz"
-# logo = "img/gecco_round.png"
-description = "gecco.xyz"
-#copyright = "Copy, _right?_ :thinking_face:"
 
-dateFormat = "2006-01-02"
+[params]
+  displayName = "🇬🇧"
+  isoCode = "en"
+  rtl = false
+  dateFormat = "2006-01-02"
+  # logo = "img/gecco_round.png"
+  description = "gecco.xyz"
+  # copyright = "Copy, _right?_ :thinking_face:"
 
 [author]
   name = "Alexander Haas"
