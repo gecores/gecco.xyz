@@ -9,7 +9,7 @@ draft: true
 This is a guide for moderately tech savy, Linux-server interested Minecraft enthusiasts, which would like to host a server for 4 to 20 people and most importantly, learn about Linux, Java edge-cases and community management.
 At the end you will have a stable server you can throw bukkit plug-ins at, without having to worry that the server will crash.
 
-## Hosting
+## Pick your Hoster
 > TL;DR: You shouldn't choose the cheapest hoster as there can be significant differences. Try different options and fail-fast. (Hetzner worked out great for me)
 
 Picking a hoster is like choosing a matress. You can pay for the most expensive option and *"invest into a third of your life"* and
@@ -41,21 +41,18 @@ Location:       Germany
 Price:          ~11,50€
 ```
 
+This server allowed for an enjoyable experience. In Minecraft as well as maintaining it.
 
+## Setup Minecraft for optimal performance
+> TL;DR: Use [PaperMC{{<icon "link">}}](https://papermc.io/) and [Aikars Flags{{<icon "link">}}](https://docs.papermc.io/paper/aikars-flags) (or: [the original blog entry](https://aikar.co/2018/07/02/tuning-the-jvm-g1gc-garbage-collector-flags-for-minecraft/)) to tune the performance of Minecraft. Setup the Minecraft server as a service to improve ease of use.
 
-## Challenges I'd like to write about:
-- Hoster (Strato and issues with them -> solution Hetzner)
-- Minecraft Performance (Switch from normal minecraft -> spigot -> papermc)
-- Automation & Backup (scp regularly from one server to another)
-- Plug-In Memory Leak (Analyze Heap Dumps and find issue)
+- Where to download
+- Where to put
+- How to setup as a service
+- How to setup mcrcon to have the service stop the server gracefully
+- Identify issues: [Timing](https://timings.aikar.co/)
+- Optimize parameters: https://www.spigotmc.org/wiki/reducing-lag/
 
-- Minor Challenge: MapList Errors
-- Listen to your players: them having fun is your primary objective
-
-
-## Admin-Log
-
-## How-To
 ### Change Minecraft Service settings
 
 `sudo nano /etc/systemd/system/minecraft.service`
@@ -68,23 +65,44 @@ sudo systemctl stop minecraft
 sudo systemctl start minecraft
 ```
 
+### Use mcrcon
+/opt/minecraft/tools/mcrcon/mcrcon -H 127.0.0.1 -P 25575 -p <password>
+
+
+
+## Automate a backup
+> TL;DR: Use a script to backup the server and optimally push it to another server.
+
+- Script template (backup and scp to another server)
+- How to use cron
+
+## Issues and how to solve them:
+- Maybe just a link list?
+
 ### Map List Errors
 (Observed Errors with random chunks and some MapList errors)<br>
 Update to paper-128.jar<br>
 Started once with --forceUpgrade to fix MapList<br>
 (Errors don’t appear anymore.)
-### Analyse Heap Dump
+
+### Plugin RAM Leak - Analyse Heap Dump
 https://www.spigotmc.org/threads/guide-finding-the-cause-of-a-ram-issue.272102/<br>
 install openjdk-17-jdk-headless<br>
 install openjdk-17-dbg<br>
 Created heap dump from minecraft server with:<br>
 jmap -dump:format=b,file=heapdump_minecraft.hprof 16159<br>
 https://www.eclipse.org/mat/
-### Use mcrcon
-/opt/minecraft/tools/mcrcon/mcrcon -H 127.0.0.1 -P 25575 -p QX48ghFhhcDwW9Vf4wQ9VfxC
 
-SCP from server / to server<br>
+##
+- Listen to your players: them having fun is your primary objective
+
+## Further info
+
+
+
+## SCP from server / to server
 scp (-r -> for folder) user@IP:/path/to/folder/or/file.ext
+
 ## Setup
 ### From scratch
 (using Hetzner’s Firewall -> ssh aka 22 and 25565)<br>
