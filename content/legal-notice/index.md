@@ -12,7 +12,7 @@ heroStyle: "background"
 
 ---
 
-## Information pursuant to "Medienstaatsvertrag §18"
+## Information pursuant to Sect. 5 German Telemedia Act (TMG)
 
 Alexander Haas<br>
 c/o Block Services<br>
