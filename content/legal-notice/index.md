@@ -1,6 +1,7 @@
 ---
 title: "Legal Notice"
 draft: false
+aliases: ['impressum']
 
 showDate : false
 showHeadingAnchors : false
