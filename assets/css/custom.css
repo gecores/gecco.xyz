@@ -2,12 +2,12 @@ td {
     vertical-align: middle !important;
 }
 
-.main-menu {
-    padding-top: 12px !important;
-    padding-bottom: 12px !important;
-}
-
 @media screen and (min-width: 0px) {
+
+    .main-menu {
+        padding-top: 12px !important;
+        padding-bottom: 12px !important;
+    }
 
     .customEntitityLogo {
         background-color: aliceblue;
@@ -39,5 +39,13 @@ td {
         padding: 8px;
         object-fit: contain;
         border-radius: 4%;
+    }
+}
+
+@media screen and (min-width: 852px) {
+
+    .main-menu {
+        padding-top: 0px !important;
+        padding-bottom: 0px !important;
     }
 }

@@ -15,17 +15,17 @@ enableCodeCopy = true
 mainSections = ["projects"]
 # robots = ""
 
-disableImageZoom = false
 disableImageOptimization = false
 
 defaultBackgroundImage = "img/leyre-71SHXwBLp5w-unsplash.webp" # used as default for background images
+defaultFeaturedImage = "img/leyre-71SHXwBLp5w-unsplash.webp" # used as default for background images
 
 highlightCurrentMenuArea = true
 smartTOC = true
 smartTOCHideUnfocusedChildren = false
 
 [header]
-  layout = "fixed" # valid options: basic, fixed
+  layout = "fixed" # valid options: basic, fixed, fixed-fill, fixed-fill-blur
 
 [footer]
   showMenu = true
@@ -40,7 +40,7 @@ smartTOCHideUnfocusedChildren = false
   showRecent = true
   showRecentItems = 5
   showMoreLink = true
-  showMoreLinkDest = "/projects"
+  showMoreLinkDest = "projects"
   cardView = false
   cardViewScreenWidth = false
   layoutBackgroundBlur = true # only used when layout equals background
@@ -54,7 +54,7 @@ smartTOCHideUnfocusedChildren = false
   showHero = true
   heroStyle = "thumbAndBackground" # valid options: basic, big, background, thumbAndBackground
   layoutBackgroundBlur = true # only used when heroStyle equals background or thumbAndBackground
-  layoutBackgroundHeaderSpace = true # only used when heroStyle equals background
+  layoutBackgroundHeaderSpace = false # only used when heroStyle equals background
   showBreadcrumbs = false
   showDraftLabel = false
   showEdit = false
@@ -62,10 +62,12 @@ smartTOCHideUnfocusedChildren = false
   editAppendPath = true
   seriesOpened = false
   showHeadingAnchors = true
-  showPagination = true
+  showPagination = false
   invertPagination = false
   showReadingTime = true
   showTableOfContents = true
+  showRelatedContent = false
+  relatedContentLimit = 6
   showTaxonomies = false
   showAuthorsBadges = false
   showWordCount = false
@@ -75,8 +77,8 @@ smartTOCHideUnfocusedChildren = false
 [list]
   showHero = true
   heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
-  layoutBackgroundBlur = true # only used when heroStyle equals background or thumbAndBackground
-  layoutBackgroundHeaderSpace = false # only used when heroStyle equals background
+  layoutBackgroundBlur = true # only used when heroStyle equals background
+  layoutBackgroundHeaderSpace = false
   showBreadcrumbs = false
   showSummary = true
   showViews = false
@@ -89,7 +91,7 @@ smartTOCHideUnfocusedChildren = false
   constrainItemsWidth = false
 
 [sitemap]
-  excludedKinds = ["taxonomy", "term"]
+  excludedKinds = ["taxonomy","term"]
 
 [taxonomy]
   showTermCount = true
