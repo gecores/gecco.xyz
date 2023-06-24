@@ -1,12 +1,12 @@
 ---
-title: "Host a stable Minecraft Server - A guide for tech savy Players"
+title: "Host a stable Minecraft Server (Java Edition) - A guide for tech savy Players"
 summary: ''
 date: 2023-05-29
 draft: true
 
 ---
 
-This is a guide for moderately tech savy, Linux-server interested Minecraft enthusiasts, which would like to host a server for 4 to 20 people and most importantly, learn about Linux, Java edge-cases and community management.
+This is a guide for moderately tech savy, Linux-server interested Minecraft (Java edition) enthusiasts, which would like to host a server for 4 to 20 people and most importantly, learn about Linux, Java edge-cases and community management.
 At the end you will have a stable server you can throw bukkit plug-ins at, without having to worry that the server will crash.
 
 ## Pick your Hoster
@@ -41,17 +41,58 @@ Location:       Germany
 Price:          ~11,50€
 ```
 
-This server allowed for an enjoyable experience. In Minecraft as well as maintaining it.
+This server allowed for an enjoyable experience. Playing Minecraft as well as maintaining it.
 
 ## Setup Minecraft for optimal performance
-> TL;DR: Use [PaperMC{{<icon "link">}}](https://papermc.io/) and [Aikars Flags{{<icon "link">}}](https://docs.papermc.io/paper/aikars-flags) (or: [the original blog entry](https://aikar.co/2018/07/02/tuning-the-jvm-g1gc-garbage-collector-flags-for-minecraft/)) to tune the performance of Minecraft. Setup the Minecraft server as a service to improve ease of use.
+> TL;DR: Use [PaperMC{{<icon "link">}}](https://papermc.io/) and [Aikars Flags{{<icon "link">}}](https://docs.papermc.io/paper/aikars-flags) (or: [the original blog entry{{<icon "link">}}](https://aikar.co/2018/07/02/tuning-the-jvm-g1gc-garbage-collector-flags-for-minecraft/)) to tune the performance of Minecraft. Setup the Minecraft server as a service to improve ease of use.
 
-- Where to download
-- Where to put
+There are multiple forks of the Minecraft Server. [Paper{{<icon "link">}}](https://papermc.io/), [Spigot{{<icon "link">}}](https://www.spigotmc.org/), [CraftBukkit{{<icon "link">}}](https://getbukkit.org/) and [Sponge{{<icon "link">}}](https://spongepowered.org/) to name the most popular ones. Paper is the most performant, Sponge supports forge mods, Spigot may be a bit more stable and CraftBukkit is OG. As I'm not interested in forge mods, but very much in performance, Paper is an obvious choice.
+
+Keep in mind that some of the performance gains in Paper are achieved by disabling features that are used by automated farms (e.g. zero tick grow farms). This may impact some players ... which we can ignore for now.
+
+We'll use ssh to access the server. [Here's a good blog entry on how to setup a connection{{<icon "link">}}.](https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server)
+
+Let's get into the weeds of it. First things first, setup the firewall using `ufw`. Alternatively you can setup the firewall using services by the hoster (Hetzner has a cool tool for this):
+
+```bash
+sudo apt install ufw
+sudo ufw allow ssh
+sudo ufw allow 25565
+sudo ufw enable
+```
+
+We need Java for Paper, Git and build-essential for mcrcon (more on that later). The current version of [Paper supports Java 17{{<icon "link">}}](https://docs.papermc.io/paper/getting-started):
+
+```bash
+sudo apt install openjdk-17-jre-headless
+sudo apt install git
+sudo apt install build-essential
+```
+
+{{<icon "triangle-exclamation">}} Disclaimer, before installing paper: I'm using `paper-1.20.1-33`. Change it to your preferred version. [Get the newest version{{<icon "link">}}](https://papermc.io/downloads/paper) or use the [build explorer{{<icon "link">}}](https://papermc.io/downloads/all) to find a specific minecraft version.
+
+```bash
+mkdir -p /opt/minecraft/server/
+cd /opt/minecraft/server/
+curl -O https://api.papermc.io/v2/projects/paper/versions/1.20.1/builds/33/downloads/paper-1.20.1-33.jar
+```
+
+Now let's initialize the server. You'll need a text editor for the next step. I prefer nano for its simplicity ([Short nano Tutorial{{<icon "link">}}](https://linuxize.com/post/how-to-use-nano-text-editor/)), but there are lots of alternative options.
+
+```bash
+# Start the jar to initialize the server
+java -jar paper-1.20.1-33.jar
+# Edit eula.txt and set false to true, to accept eula
+nano eula.txt
+# Run again to create the worlds (Ctrl + C to quit the server)
+java -jar paper-1.20.1-33.jar
+```
+
+
+
 - How to setup as a service
 - How to setup mcrcon to have the service stop the server gracefully
-- Identify issues: [Timing](https://timings.aikar.co/)
-- Optimize parameters: https://www.spigotmc.org/wiki/reducing-lag/
+- mkdir -p /opt/minecraft/tools/mcrcon/
 
 ### Change Minecraft Service settings
 
@@ -66,12 +107,20 @@ sudo systemctl start minecraft
 ```
 
 ### Use mcrcon
-/opt/minecraft/tools/mcrcon/mcrcon -H 127.0.0.1 -P 25575 -p <password>
 
+```bash
+/opt/minecraft/tools/mcrcon/mcrcon -H 127.0.0.1 -P 25575 -p <password>
+```
+
+## Improve Performance
+- Identify issues: [Timing](https://timings.aikar.co/)
+- Optimize parameters: https://www.spigotmc.org/wiki/reducing-lag/
 
 
 ## Automate a backup
 > TL;DR: Use a script to backup the server and optimally push it to another server.
+
+mkdir -p /opt/minecraft/tools/backup/
 
 - Script template (backup and scp to another server)
 - How to use cron
@@ -135,9 +184,6 @@ https://www.spigotmc.org/wiki/reducing-lag/
 
 Setup Minecraft as a service:<br>
 https://linuxize.com/post/how-to-install-minecraft-server-on-ubuntu-18-04/
-
-### Tuning the JVM – G1GC Garbage Collector Flags for Minecraft
-https://aikar.co/2018/07/02/tuning-the-jvm-g1gc-garbage-collector-flags-for-minecraft/
 
 Setup Backup:<br>
 https://linuxize.com/post/how-to-install-minecraft-server-on-ubuntu-18-04/
