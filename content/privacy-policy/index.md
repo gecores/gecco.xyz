@@ -3,11 +3,8 @@ title: "Privacy Policy"
 draft: false
 aliases: ['datenschutz', 'dsgvo']
 
-showDate : false
 showPagination : false
-showReadingTime : false
 showTableOfContents : false
-showAuthor: false
 heroStyle: "background"
 
 ---

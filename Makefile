@@ -15,6 +15,10 @@ build:
 	rm -r public
 	hugo
 
+build-dev:
+	rm -r public
+	hugo -D -b http://test.gecco.xyz
+
 local:
 	hugo server
 
@@ -25,9 +29,7 @@ deploy: build
 	ssh gecco.xyz@ssh.strato.de rm -r gecco.xyz/*
 	scp -r public/* gecco.xyz@ssh.strato.de:/gecco.xyz/
 
-deploy-dev:
-	rm -r public
-	hugo -D -b http://test.gecco.xyz
+deploy-dev: build-dev
 	ssh gecco.xyz@ssh.strato.de rm -r test.gecco.xyz/*
 	scp -r public/* gecco.xyz@ssh.strato.de:/test.gecco.xyz/
 

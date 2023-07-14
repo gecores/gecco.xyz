@@ -1,23 +1,11 @@
 ---
 title: "Privacy Policy - Train Trouble"
-date: 2023-02-26
 draft: false
+aliases: ['datenschutz-train-trouble', 'dsgvo-train-trouble']
 
-showDate : yes
-showDateUpdated : false
-showHeadingAnchors : false
 showPagination : false
-showReadingTime : false
-showTableOfContents : true
-showTaxonomies : false
-showWordCount : false
-showSummary : false
-sharingLinks : false
-showEdit: false
-showViews: false
-showLikes: false
-showAuthor: false
-layoutBackgroundHeaderSpace: false
+showTableOfContents : false
+heroStyle: "background"
 
 ---
 
