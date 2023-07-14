@@ -1,6 +1,5 @@
 ---
 title: "Privacy Policy"
-date: 2023-02-19T20:55:37+01:00
 draft: false
 aliases: ['datenschutz', 'dsgvo']
 
@@ -9,6 +8,7 @@ showPagination : false
 showReadingTime : false
 showTableOfContents : false
 showAuthor: false
+heroStyle: "background"
 
 ---
 
