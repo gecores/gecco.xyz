@@ -11,3 +11,16 @@ https://gohugo.io
 https://github.com/nunocoracao/blowfish
 Which itself is based on:
 https://github.com/jpanther/congo
+
+### Setup (Linux)
+```bash
+sudo snap install hugo
+git submodule init
+git submodule update
+```
+
+### Update (Linux)
+```bash
+sudo snap refresh hugo
+git submodule update --remote --merge
+```
