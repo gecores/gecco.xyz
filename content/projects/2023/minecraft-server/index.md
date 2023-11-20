@@ -6,7 +6,7 @@ draft: true
 
 ---
 
-This is a guide for moderately tech savy, Linux-server interested Minecraft (Java edition) enthusiasts, which would like to host a server for 4 to 20 people and most importantly, learn about Linux, Java edge-cases and community management.
+This is a guide for moderately tech savy, Linux-server interested Minecraft (Java edition) enthusiasts, which would like to host a server for 4 to 20 people and most importantly, learn about Linux, Java edge-cases and anger management (mostly your own).
 At the end you will have a stable server you can throw bukkit plug-ins at, without having to worry that the server will crash.
 
 ## Pick your Hoster
