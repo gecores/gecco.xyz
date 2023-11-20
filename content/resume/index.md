@@ -2,12 +2,9 @@
 title: "Resume"
 draft: false
 
-showDate : false
 showHeadingAnchors : false
 showPagination : false
-showReadingTime : false
 showTableOfContents : false
-showAuthor: true
 heroStyle: "background"
 
 ---

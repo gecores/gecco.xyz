@@ -2,14 +2,11 @@
 title: "About"
 draft: false
 
-showDate : false
 showHeadingAnchors : false
 showPagination : false
-showReadingTime : false
 showTableOfContents : false
-showAuthor: true
 heroStyle: "background"
-
+showAuthor: true
 ---
 
 I've always been drawn to the world of technology and its ability to bring people together through immersive experiences. As a Data Engineer, I enjoy working with data and using it to build systems that solve real-world problems. My expertise in data processing, storage, and analysis has helped me to create efficient and scalable systems that can handle large volumes of data.

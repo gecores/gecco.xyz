@@ -1,10 +1,11 @@
 #!/bin/bash
 
-.PHONY = help build local deploy-dev deploy upgrade
+.PHONY = help build build-dev local local-dev deploy deploy-dev upgrade
 
 help:
 	@echo 'All available makefile commands:'
 	@echo '    build          Replace folder public with current state'
+	@echo '    build-dev      Replace folder public with dev state'
 	@echo '    local          Start Hugo Local Server'
 	@echo '    local-dev      Start Hugo Local Server in Dev mode'
 	@echo '    deploy         Build and then upload the website'
@@ -15,6 +16,10 @@ build:
 	rm -r public
 	hugo
 
+build-dev:
+	rm -r public
+	hugo -D -b http://test.gecco.xyz
+
 local:
 	hugo server
 
@@ -22,16 +27,7 @@ local-dev:
 	hugo server -D
 
 deploy: build
-	ssh gecco.xyz@ssh.strato.de rm -r gecco.xyz/*
-	scp -r public/* gecco.xyz@ssh.strato.de:/gecco.xyz/
+	rsync -acuv --delete -e ssh ./public gecco.xyz@ssh.strato.de:~/gecco.xyz
 
-deploy-dev:
-	rm -r public
-	hugo -D -b http://test.gecco.xyz
-	ssh gecco.xyz@ssh.strato.de rm -r test.gecco.xyz/*
-	scp -r public/* gecco.xyz@ssh.strato.de:/test.gecco.xyz/
-
-upgrade:
-	choco upgrade chocolatey
-	choco upgrade hugo-extended
-	git submodule update --remote --merge
+deploy-dev: build-dev
+	rsync -acuv --delete -e ssh ./public gecco.xyz@ssh.strato.de:~/test.gecco.xyz
