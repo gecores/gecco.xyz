@@ -77,7 +77,7 @@ sudo apt install make
 ```bash
 mkdir -p /opt/minecraft/server/
 cd /opt/minecraft/server/
-curl -O https://api.papermc.io/v2/projects/paper/versions/1.20.1/builds/33/downloads/paper-1.20.1-33.jar
+wget https://api.papermc.io/v2/projects/paper/versions/1.20.1/builds/33/downloads/paper-1.20.1-33.jar
 ```
 
 Now let's initialize the server. You'll need a text editor for the next step. I prefer nano for its simplicity ([Short nano Tutorial{{<icon "link">}}](https://linuxize.com/post/how-to-use-nano-text-editor/)), but there are lots of alternative options.
@@ -166,15 +166,18 @@ sudo systemctl start minecraft
 ## Automate a backup
 > TL;DR: Use a script to backup the minecraft server.
 
+Let's create the needed folders and script:
+
 ```bash
 mkdir -p /opt/minecraft/backups/
 mkdir -p /opt/minecraft/tools/backup/
 nano /opt/minecraft/tools/backup/backup.sh
 ```
 
+And add the following content to the `backup.sh`.
+
 ```bash
 #!/bin/bash
-
 function rcon {
   mcrcon -H 127.0.0.1 -P 25575 -p QX48ghFhhcDwW9Vf4wQ9VfxC "$1"
 }
@@ -189,56 +192,57 @@ rcon "save-on"
 find /opt/minecraft/backups/ -type f -mtime +7 -name '*.gz' -delete
 ```
 
+Make it executable:
+
 ```bash
 chmod +x /opt/minecraft/tools/backup/backup.sh
 ```
+
+And let it run regularly, by opening running crontab:
 
 ```bash
 crontab -e
 ```
 
+And adding this line at the end of the file:
+
 ```bash
 0 4 * * * /opt/minecraft/tools/backup/backup.sh
 ```
 
+Now the script will create a backup of `/opt/minecraft/server` in
+
 ## Have fun playing!
 Your server is up and running. Now it's time to play.
 
+### Recommended changes to your server.properties
+There are many settings to be changed in your `server.properties`. Some basic changes you can make are the following:
+
+```
+level-name=NameForALevel
+motd=Description for your server
+max-players=20
+```
+
 ### Awesome plugins to use on your Server
+Checkout [SpigotMC{{<icon "link">}}](https://www.spigotmc.org/) or [Carftaro{{<icon "link">}}](https://craftaro.com/) for cool plug-ins. A basic set may be the follwing:
+
 - [UltimateTimber{{<icon "link">}}](https://craftaro.com/marketplace/product/ultimatetimber.18) a beautiful plugin to cut down trees whole easier.
 - [Harbor{{<icon "link">}}](https://www.spigotmc.org/resources/harbor-a-sleep-enhancement-plugin.60088/) allows to skip the night if enough players go to bed.
 - [CoreProtect{{<icon "link">}}](https://www.spigotmc.org/resources/coreprotect.8631/) logs every block change and traces who is responsible for griefing. Enables Administrators to revert damages.
 - [GSit{{<icon "link">}}](https://www.spigotmc.org/resources/gsit-modern-sit-seat-and-chair-lay-and-crawl-plugin-1-13-1-20-2.62325/) is a fun plugin to sit on chairs or lay on the floor.
 
-## (Optional) Advanced improvements
-- Identify issues: [Timing](https://timings.aikar.co/)
-- Optimize parameters: https://www.spigotmc.org/wiki/reducing-lag/
+Just keep in mind: more plug-ins need more performance.
 
-
-### Plugin RAM Leak - Analyse Heap Dump
-https://www.spigotmc.org/threads/guide-finding-the-cause-of-a-ram-issue.272102/<br>
-install openjdk-17-jdk-headless<br>
-install openjdk-17-dbg<br>
-Created heap dump from minecraft server with:<br>
-jmap -dump:format=b,file=heapdump_minecraft.hprof 16159<br>
-https://www.eclipse.org/mat/
-
-
-### Change spigot.yml, bukkit.yml and server.properties according to:
-https://www.spigotmc.org/wiki/reducing-lag/
-
-Setup Minecraft as a service:<br>
-https://linuxize.com/post/how-to-install-minecraft-server-on-ubuntu-18-04/
-
-Setup Backup:<br>
-https://linuxize.com/post/how-to-install-minecraft-server-on-ubuntu-18-04/
-
-Change server.properties:
-	Motd to “Lost in this paradise”
-	max-players to 69
-
-### Apply Performance Improvements:
-https://github.com/YouHaveTrouble/minecraft-optimization
+## (Optional) Advanced topics you can read up on
+- Identify lag issues:<br>
+  https://timings.aikar.co/
+- Optimize parameters:<br>
+  https://www.spigotmc.org/wiki/reducing-lag/
+- Optimize even more parameters:<br>
+  https://github.com/YouHaveTrouble/minecraft-optimization
+- RAM spill issues:<br>
+  https://www.spigotmc.org/threads/guide-finding-the-cause-of-a-ram-issue.272102/
 
 
 ## Cheatsheet
@@ -250,10 +254,16 @@ sudo systemctl start minecraft
 ```
 
 ### Update / Upgrade Paper MC
-[TODO]
+Download the newest Paper Version ([Get the newest version{{<icon "link">}}](https://papermc.io/downloads/paper)):
+```
+wget https://api.papermc.io/v2/projects/paper/versions/1.20.1/builds/33/downloads/paper-1.20.1-33.jar
+```
 
-### Check logs
-[TODO]
+Edit the Minecraft service to use the newer file (see chapter below). And if your server upgraded sucessfully, you can remove the old file:
+
+```bash
+rm paper-1.20.1-xx.jar
+```
 
 ### Edit the Minecraft service
 ```bash
@@ -267,6 +277,17 @@ sudo systemctl daemon-reload
 sudo systemctl stop minecraft
 sudo systemctl start minecraft
 ```
+
+### Check logs
+In the `/opt/minecraft/server/logs` folder there are plain log files `.log` and zipped log files `.log.gz`. These can be opened directly using these commands:
+```bash
+# for plain log files
+less latest.log
+# for zipped log files
+zless 2042-04-20-1.log.gz
+```
+
+Press `q` to exit the viewer.
 
 ### Use mcrcon manually
 ```bash
