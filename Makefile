@@ -27,10 +27,10 @@ local-dev:
 	hugo server -D
 
 deploy: build
-	rsync -acuv --delete -e ssh ./public gecco.xyz@ssh.strato.de:~/gecco.xyz
+	rsync -acuv --delete -e ssh ./public/ gecco.xyz@ssh.strato.de:~/gecco.xyz
 
 deploy-dev: build-dev
-	rsync -acuv --delete -e ssh ./public gecco.xyz@ssh.strato.de:~/test.gecco.xyz
+	rsync -acuv --delete -e ssh ./public/ gecco.xyz@ssh.strato.de:~/test.gecco.xyz
 
 upgrade:
 	sudo snap refresh hugo
