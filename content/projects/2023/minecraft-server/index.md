@@ -2,7 +2,7 @@
 title: "Host a stable Minecraft Server (Java Edition) - A guide for tech savy Players"
 summary: ''
 date: 2023-05-29
-draft: true
+draft: false
 
 ---
 
