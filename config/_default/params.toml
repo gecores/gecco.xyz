@@ -12,10 +12,14 @@ autoSwitchAppearance = false
 enableSearch = false
 enableCodeCopy = true
 
+# replyByEmail = false
+
 mainSections = ["projects"]
 # robots = ""
 
 disableImageOptimization = false
+# disableTextInHeader = false
+# backgroundImageWidth = 1200
 
 defaultBackgroundImage = "img/leyre-71SHXwBLp5w-unsplash.webp" # used as default for background images
 defaultFeaturedImage = "img/leyre-71SHXwBLp5w-unsplash.webp" # used as default for background images
@@ -51,6 +55,7 @@ smartTOCHideUnfocusedChildren = false
   showLikes = false
   showDateUpdated = false
   showAuthor = false
+  # showAuthorBottom = false
   showHero = true
   heroStyle = "thumbAndBackground" # valid options: basic, big, background, thumbAndBackground
   layoutBackgroundBlur = true # only used when heroStyle equals background or thumbAndBackground
@@ -71,8 +76,8 @@ smartTOCHideUnfocusedChildren = false
   showTaxonomies = false
   showAuthorsBadges = false
   showWordCount = false
-  showSummary = true
   # sharingLinks = [ "linkedin", "twitter", "reddit", "facebook", "email"]
+  showZenMode = false
 
 [list]
   showHero = true
@@ -85,6 +90,7 @@ smartTOCHideUnfocusedChildren = false
   showLikes = false
   showTableOfContents = false
   showCards = true
+  orderByWeight = true
   groupByYear = false
   cardView = false
   cardViewScreenWidth = false
@@ -126,6 +132,16 @@ smartTOCHideUnfocusedChildren = false
 [fathomAnalytics]
   # site = "ABC12345"
   # domain = "llama.yoursite.com"
+
+[umamiAnalytics]
+  # websiteid = "ABC12345"
+  # domain = "llama.yoursite.com"
+  # dataDomains = "yoursite.com,yoursite2.com"
+  # enableTrackEvent = false
+
+[selineAnalytics]
+  # token = "XXXXXX"
+  # enableTrackEvent = false
 
 [buymeacoffee]
   # identifier = ""

@@ -1,5 +1,12 @@
 td {
     vertical-align: middle !important;
+    text-align: center !important;
+    padding: 6px 6px 6px 6px !important;
+}
+th {
+    /*vertical-align: middle !important;*/
+    text-align: center !important;
+    padding: 6px 6px 6px 6px !important;
 }
 
 @media screen and (min-width: 0px) {

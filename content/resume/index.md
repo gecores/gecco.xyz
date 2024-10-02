@@ -23,17 +23,21 @@ heroStyle: "background"
     </thead>
     <tbody>
         <tr class="customHighlightRow">
-            <td><img class="customEntitityLogo" src="otto.webp"/></td>
-            <td><a href="https://www.otto.com/" target="_blank">OTTO</a></td>
+            <td rowspan=2><img class="customEntitityLogo" src="otto.webp"/></td>
+            <td rowspan=2><a href="https://www.otto.com/" target="_blank">OTTO</a></td>
+            <td>Cloud Architect</td>
+            <td>2024 - present</td>
+            <td rowspan=2>Hamburg, Germany</td>
+        </tr>
+        <tr>
             <td>Data Engineer</td>
-            <td>2023 - Present</td>
-            <td>Hamburg, Germany</td>
+            <td>2023 - 2024</td>
         </tr>
         <tr class="customHighlightRow">
             <td><img class="customEntitityLogo" src="setana.webp"/></td>
             <td><a href="https://www.setana.de/" target="_blank">Setana Finanz</a></td>
             <td>IT Administrator</td>
-            <td>2014 - Present</td>
+            <td>2014 - present</td>
             <td>Hamburg, Germany</td>
         </tr>
         <tr>

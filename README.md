@@ -14,13 +14,13 @@ https://github.com/jpanther/congo
 
 ### Setup (Linux)
 ```bash
-sudo snap install hugo
+sudo apt install hugo
 git submodule init
 git submodule update
 ```
 
 ### Update (Linux)
 ```bash
-sudo snap refresh hugo
+sudo apt upgrade hugo
 git submodule update --remote --merge
 ```

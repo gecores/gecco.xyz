@@ -1,3 +1,4 @@
+disabled = false
 languageCode = "en"
 languageName = "English"
 weight = 1
@@ -12,11 +13,12 @@ title = "gecco.xyz"
   description = "gecco.xyz"
   # copyright = "Copy, _right?_ :thinking_face:"
 
-[author]
+[params.author]
   name = "Alexander Haas"
+  email = "contact@gecco.xyz"
   image = "img/author.webp"
-  headline = "Data Engineer @ OTTO"
-  bio = "Data Engineer @ OTTO"
+  headline = "Cloud Architect @ OTTO"
+  bio = "Cloud Architect @ OTTO"
   links = [
     { github = "https://github.com/gecores" },
     { email = "mailto:contact@gecco.xyz" },
