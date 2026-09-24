@@ -5,12 +5,14 @@
 # Refer to the theme docs for more details about each of these parameters.
 # https://blowfish.page/docs/configuration/#theme-parameters
 
-colorScheme = "noir"
+colorScheme = "burufugu"
 defaultAppearance = "dark" # valid options: light or dark
 autoSwitchAppearance = false
 
+enableA11y = false
 enableSearch = false
 enableCodeCopy = true
+enableStructuredBreadcrumbs = true
 
 # replyByEmail = false
 
@@ -18,18 +20,29 @@ mainSections = ["projects"]
 # robots = ""
 
 disableImageOptimization = false
+disableImageOptimizationMD = false
 # disableTextInHeader = false
 # backgroundImageWidth = 1200
 
 defaultBackgroundImage = "img/leyre-71SHXwBLp5w-unsplash.webp" # used as default for background images
+backgroundCanvas = true # render defaultBackgroundImage as a fixed backdrop on every page
 defaultFeaturedImage = "img/leyre-71SHXwBLp5w-unsplash.webp" # used as default for background images
+# defaultSocialImage = "/img/blowfish_banner.png"
+# hotlinkFeatureImage = false
+# imagePosition = "50% 50%"
 
 highlightCurrentMenuArea = true
 smartTOC = true
 smartTOCHideUnfocusedChildren = false
 
+#giteaDefaultServer = "https://git.fsfe.org"
+#forgejoDefaultServer = "https://v11.next.forgejo.org"
+
+fingerprintAlgorithm = "sha512" # Valid values are "sha512" (default), "sha384", "sha256"
+
 [header]
-  layout = "fixed" # valid options: basic, fixed, fixed-fill, fixed-fill-blur
+  layout = "fixed" # valid options: basic, fixed, fixed-fill, fixed-gradient, fixed-fill-blur, floating
+  mobileMenuStyle = "dropdown" # valid options: fullscreen, dropdown
 
 [footer]
   showMenu = true
@@ -39,7 +52,8 @@ smartTOCHideUnfocusedChildren = false
   showScrollToTop = false
 
 [homepage]
-  layout = "background" # valid options: page, profile, hero, card, background, custom
+  layout = "profile" # valid options: page, profile, hero, card, background, custom
+  layoutSwitcher = false # opt-in interactive preview of the built-in layouts
   # homepageImage = "IMAGE.jpg" # used in: hero, and card
   showRecent = true
   showRecentItems = 5
@@ -48,11 +62,13 @@ smartTOCHideUnfocusedChildren = false
   cardView = false
   cardViewScreenWidth = false
   layoutBackgroundBlur = true # only used when layout equals background
+  disableHeroImageFilter = false # only used when layout equals hero
 
 [article]
   showDate = false
   showViews = false
   showLikes = false
+  showDateOnlyInArticle = false
   showDateUpdated = false
   showAuthor = false
   # showAuthorBottom = false
@@ -70,6 +86,7 @@ smartTOCHideUnfocusedChildren = false
   showPagination = false
   invertPagination = false
   showReadingTime = false
+  showReadingProgress = false
   showTableOfContents = true
   showRelatedContent = false
   relatedContentLimit = 6
@@ -95,6 +112,7 @@ smartTOCHideUnfocusedChildren = false
   cardView = false
   cardViewScreenWidth = false
   constrainItemsWidth = false
+  featureImageHover = false
 
 [sitemap]
   excludedKinds = ["taxonomy","term"]
@@ -137,6 +155,7 @@ smartTOCHideUnfocusedChildren = false
   # websiteid = "ABC12345"
   # domain = "llama.yoursite.com"
   # dataDomains = "yoursite.com,yoursite2.com"
+  # scriptName = ""
   # enableTrackEvent = false
 
 [selineAnalytics]
@@ -155,3 +174,10 @@ smartTOCHideUnfocusedChildren = false
   # bing = ""
   # pinterest = ""
   # yandex = ""
+
+[rssnext]
+  # feedId = ""
+  # userId = ""
+
+[advertisement]
+  # adsense = ""

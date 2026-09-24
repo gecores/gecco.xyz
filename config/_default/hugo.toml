@@ -10,7 +10,7 @@ disableLanguages = [] # to allow translation work requiring shipping to producti
 # pluralizeListTitles = "true" # hugo function useful for non-english languages, find out more in  https://gohugo.io/getting-started/configuration/#pluralizelisttitles
 
 enableRobotsTXT = true
-paginate = 100
+paginate = 20
 summaryLength = 30
 hasCJKLanguage = true
 

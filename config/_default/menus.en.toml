@@ -21,14 +21,9 @@
   weight = 20
 
 [[main]]
-  name = "T-Shirts"
-  pageRef = "t-shirts"
-  weight = 30
-
-[[main]]
   name = "Resume"
   pageRef = "resume"
-  weight = 40
+  weight = 30
 
 
 # -- Footer Menu --

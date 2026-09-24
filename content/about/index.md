@@ -9,8 +9,8 @@ heroStyle: "background"
 showAuthor: true
 ---
 
-I've always been drawn to the world of technology and its ability to bring people together through immersive experiences. As a Data Engineer, I enjoy working with data and using it to build systems that solve real-world problems. My expertise in data processing, storage, and analysis has helped me to create efficient and scalable systems that can handle large volumes of data.
+I specialize in the intersection of code and cloud, focusing on Cloud Architecture and Data Engineering. I enjoy creating strong, reliable, and scalable systems, especially when working with complex data platforms like BigQuery and Snowflake.
 
-In my free time, I love to explore my creative side by working on game design projects using Unity. I find that the process of designing and building a game is both challenging and rewarding. From gameplay mechanics and level design to audio and visual effects, every aspect of game design requires attention to detail and creative problem-solving.
+However, my interests extend beyond the professional sphere. Outside of work, I find my rhythm in the water—whether I'm organizing lifeguard weekends at the Alster or planning the next DLRG seminar.
 
-I'm excited to continue growing my skills and exploring new avenues for my passions. If you're interested in working together on a project or just want to chat about data engineering or game design in Unity, feel free to reach out!
+I'm always seeking the next big challenge, whether that's optimizing a distributed pipeline or exploring a new patch of open water. If you want to discuss cloud scaling, data pipelines, or the physics behind a well-designed 3D print, feel free to get in touch.
