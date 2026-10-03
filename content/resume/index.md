@@ -20,7 +20,6 @@ heroStyle: "background"
             <th >Link</th >
             <th >Role</th >
             <th >Dates</th >
-            <th >Location</th >
         </tr >
     </thead >
     <tbody >
@@ -29,7 +28,6 @@ heroStyle: "background"
             <td rowspan=2><a href="https://www.otto.com/" target="_blank">OTTO</a></td>
             <td>Cloud Architect</td>
             <td>2024 - present</td>
-            <td rowspan=2>Hamburg, Germany</td>
         </tr >
         <tr >
             <td>Data Engineer</td>
@@ -40,14 +38,12 @@ heroStyle: "background"
             <td><a href="https://www.setana.de/" target="_blank">Setana Finanz</a></td>
             <td>IT Administrator</td>
             <td>2014 - 2024</td>
-            <td>Hamburg, Germany</td>
         </tr >
         <tr >
             <td rowspan=2><img class="customEntitityLogo" src="s24.webp"/></td>
             <td rowspan=2><a href="https://s24.com/" target="_blank">shopping24</a></td>
             <td>Date Engineer</td>
             <td>2020 - 2023</td>
-            <td rowspan=2>Hamburg, Germany</td>
         </tr >
         <tr >
             <td>Working Student</td>
@@ -65,7 +61,6 @@ heroStyle: "background"
             <th >Link</th >
             <th >Role</th >
             <th >Dates</th >
-            <th >Location</th >
         </tr >
     </thead >
     <tbody >
@@ -74,7 +69,6 @@ heroStyle: "background"
             <td><a href="https://hamburg.dlrg.de/" target="_blank">DLRG LV Hamburg e.V.</a></td>
             <td>Stellv. Beauftragter WRD</td>
             <td>2026 - present</td>
-            <td rowspan=2>Hamburg, Germany</td>
         </tr >
         <tr >
             <td><a href="https://wandsbek.dlrg.de/" target="_blank">DLRG Bezirk Wandsbek e.V.</a></td>
